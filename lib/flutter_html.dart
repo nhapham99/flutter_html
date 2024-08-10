@@ -11,7 +11,6 @@ export 'package:flutter_html/custom_render.dart';
 //export render context api
 export 'package:flutter_html/html_parser.dart';
 //export render context api
-export 'package:flutter_html/html_parser.dart';
 //export src for advanced custom render uses (e.g. casting context.tree)
 export 'package:flutter_html/src/anchor.dart';
 export 'package:flutter_html/src/interactable_element.dart';
@@ -161,19 +160,14 @@ class _HtmlState extends State<Html> {
   @override
   void initState() {
     super.initState();
-    documentElement = widget.data != null
-        ? HtmlParser.parseHTML(widget.data!)
-        : widget.documentElement!;
+    documentElement = widget.data != null ? HtmlParser.parseHTML(widget.data!) : widget.documentElement!;
   }
 
   @override
   void didUpdateWidget(Html oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if ((widget.data != null && oldWidget.data != widget.data) ||
-        oldWidget.documentElement != widget.documentElement) {
-      documentElement = widget.data != null
-          ? HtmlParser.parseHTML(widget.data!)
-          : widget.documentElement!;
+    if ((widget.data != null && oldWidget.data != widget.data) || oldWidget.documentElement != widget.documentElement) {
+      documentElement = widget.data != null ? HtmlParser.parseHTML(widget.data!) : widget.documentElement!;
     }
   }
 
@@ -339,9 +333,7 @@ class _SelectableHtmlState extends State<SelectableHtml> {
   @override
   void initState() {
     super.initState();
-    documentElement = widget.data != null
-        ? HtmlParser.parseHTML(widget.data!)
-        : widget.documentElement!;
+    documentElement = widget.data != null ? HtmlParser.parseHTML(widget.data!) : widget.documentElement!;
   }
 
   @override
@@ -362,8 +354,7 @@ class _SelectableHtmlState extends State<SelectableHtml> {
         customRenders: {}
           ..addAll(widget.customRenders)
           ..addAll(generateDefaultRenders()),
-        tagsList:
-            widget.tagsList.isEmpty ? SelectableHtml.tags : widget.tagsList,
+        tagsList: widget.tagsList.isEmpty ? SelectableHtml.tags : widget.tagsList,
         selectionControls: widget.selectionControls,
         scrollPhysics: widget.scrollPhysics,
       ),
